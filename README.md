@@ -1,0 +1,2 @@
+# CalcAutomation
+A sample project 
