@@ -33,3 +33,31 @@ All options coverd  with  standard template implementation
     And Verify text should "0.987"
 
 
+# Find the bug in staging with below combination data
+
+Background: Every test run independenty Open the brow
+    Given  For Test Open "chrome" browser
+#    And User enter url "https://nuix.github.io/SDET/senior-sdet/productionCalc/index.html"
+    And User enter url "https://nuix.github.io/SDET/senior-sdet/stagingCalc/index.html"
+    Scenario:  Validate if use click on Cancle button
+    
+      Given User click on 9 number button
+      
+      And User click on "*" operation button
+      
+      And User click on 3 number button
+      
+      And User click on "." operation button
+      
+      And User click on 0 number button
+      
+      And User click on "=" operation button
+      
+#      Then User click on "c" operation button
+
+      And Verify text should "27"
+#      And Verify text should "Error"
+#      And Verify text should "0.987"
+
+
+#
