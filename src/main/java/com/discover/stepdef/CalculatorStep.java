@@ -59,16 +59,22 @@ public class CalculatorStep {
 
         if (Expected.contains(".")) {
             double actualvalue = Double.parseDouble(calcPage.validateOutPut().getText());
-            Assert.assertTrue(Double.parseDouble(Expected) == actualvalue, Double.parseDouble(Expected) + " Expected value not matched with Actual value" + actualvalue);
+            Assert.assertEquals(actualvalue, Double.parseDouble(Expected), Double.parseDouble(Expected) + " Expected value not matched with Actual value" + actualvalue);
         }else if (Expected.contains("Error")){
             String actualvalue = calcPage.validateOutPut().getText();
             Assert.assertTrue(Expected.equalsIgnoreCase(actualvalue), Expected + " Expected value not matched with Actual value" + actualvalue);
         }else{
             int actualvalue =Integer.parseInt(calcPage.validateOutPut().getText());
-            Assert.assertTrue(Integer.parseInt(Expected)== actualvalue ,  Integer.parseInt(Expected)+" Expected value not matched with Actual value " +actualvalue);
+            Assert.assertEquals(actualvalue, Integer.parseInt(Expected), Integer.parseInt(Expected) + " Expected value not matched with Actual value " + actualvalue);
 
         }
     }
 
 
+
+    @And("User Close the Session")
+    public void userCloseTheSession() {
+        driver.close();
+        driver.quit();
+    }
 }
